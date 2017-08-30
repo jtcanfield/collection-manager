@@ -66,15 +66,16 @@ app.post('/:id/newsave/', function (req, res) {
 
 app.get('/:id/editgame/', function (req, res) {
   Game.findOne({_id: req.params.id}).then(function (game) {
-    console.log(game);
     res.render("editgame", {game:game});
   })
 })
 app.post('/:id/editgame/', function (req, res) {
   Game.findOne({_id: req.params.id}).then(function (game) {
-    game.saves.push(req.body);
+    game.name = req.body.name;
+    game.developer = req.body.developer;
+    game.isitgood = req.body.isitgood;
     game.save().then(function () {
-      res.redirect("/")
+    res.render("editgame", {game:game});
     })
   })
 })

@@ -14,20 +14,25 @@
  	</head>
  	<body>
     {{#game}}
-    <h2>Add save to {{name}}</h2>
-    <form action="/{{_id}}/newsave" method="POST">
+    <h2>Edit {{name}}</h2>
+    <form action="/{{_id}}/editgame" method="POST">
       <p>
-        <label for="name">Name of Save:</label>
-        <input type="text" id="name" name="name" required/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{name}}" required/>
       </p>
 
       <p>
-        <label for="time">Time:</label>
-        <input type="text" id="time" name="time" />
+        <label for="developer">Developer:</label>
+        <input type="text" id="developer" name="developer" value="{{developer}}" />
       </p>
 
       <p>
-        <button type="submit">Add Save</button>
+        <label for="isitgood">Is It Good?</label>
+        <input type="checkbox" id="isitgood" name="isitgood" {{#isitgood}}value="checked"{{/isitgood}}/>
+      </p>
+
+      <p>
+        <button type="submit">Edit Game</button>
       </p>
     </form>
     {{/game}}
