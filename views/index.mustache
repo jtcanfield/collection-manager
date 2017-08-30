@@ -13,14 +13,21 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
  	</head>
  	<body>
-    <form action="/add" method="post">
-      <button type="submit">Add</button>
-    </form>
     {{#games}}
     <p>Name: {{name}}</p>
     <p>Developer: {{developer}}</p>
     <p>Is It Good?: {{isitgood}}</p>
+    <ul>
+    {{#saves}}
+      <li>{{name}}</li>
+      <li>{{time}}</li>
+    {{/saves}}
+    </ul>
+    <br><br>
     {{/games}}
+    <form action="/add" method="post">
+      <button type="submit">Add</button>
+    </form>
  	  <script type="text/javascript" src="main.js"></script>
  	</body>
  </html>
