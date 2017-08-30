@@ -22,11 +22,9 @@
       <li>{{name}}</li>
       <li>{{time}}</li>
     {{/saves}}
+    <a href="/{{_id}}/editgame/">Edit Game</a>
     </ul>
     <a href="/{{_id}}/addsave/">Add New Save</a>
-    <!-- <form action="/addsave{name}}" method="post">
-      <button type="submit">Add New Save</button>
-    </form> -->
     <br><br>
     {{/games}}
     <form action="/add" method="post">
