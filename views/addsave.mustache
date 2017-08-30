@@ -13,7 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
  	</head>
  	<body>
-    <form action="/addsaveto{{name}}" method="POST">
+    {{#game}}
+    <h2>Add save to {{game}}</h2>
+    <form action="/{{_id}}/newsave" method="POST">
       <p>
         <label for="name">Name of Save:</label>
         <input type="text" id="name" name="name" required/>
@@ -28,6 +30,7 @@
         <button type="submit">Add Save</button>
       </p>
     </form>
+    {{/game}}
     <form action="/" method="post">
       <button type="submit">Home</button>
     </form>

@@ -49,9 +49,20 @@ app.post("/add", function (req, res) {
 });
 
 
-app.post("/addsave:dynamic", function (req, res) {
-  res.render("addsave", {name: req.params.dynamic});
-});
+app.get('/:id/addsave/', function (req, res) {
+  Game.findOne({_id: req.params.id}).then(function (game) {
+    res.render("addsave", {game: game});
+  })
+})
+app.post('/:id/addsave/', function (req, res) {
+  Game.findOne({_id: req.params.id}).then(function (game) {
+    game.steps.push(req.body.step);
+    game.save().then(function () {
+      res.redirect("/")
+      // res.render("new_step", {game: game});
+    })
+  })
+})
 app.post("/addsaveto:dynamic", function (req, res) {
   res.redirect('/add');
 });
