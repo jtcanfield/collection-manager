@@ -56,7 +56,7 @@ app.get('/:id/addsave/', function (req, res) {
 })
 app.post('/:id/addsave/', function (req, res) {
   Game.findOne({_id: req.params.id}).then(function (game) {
-    game.steps.push(req.body.step);
+    game.saves.push(req.body);
     game.save().then(function () {
       res.redirect("/")
       // res.render("new_step", {game: game});
