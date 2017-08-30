@@ -54,18 +54,15 @@ app.get('/:id/addsave/', function (req, res) {
     res.render("addsave", {game: game});
   })
 })
-app.post('/:id/addsave/', function (req, res) {
+app.post('/:id/newsave/', function (req, res) {
   Game.findOne({_id: req.params.id}).then(function (game) {
     game.saves.push(req.body);
     game.save().then(function () {
       res.redirect("/")
-      // res.render("new_step", {game: game});
     })
   })
 })
-app.post("/addsaveto:dynamic", function (req, res) {
-  res.redirect('/add');
-});
+
 
 app.post('/createnew', function (req, res) {
   Game.create(req.body)
