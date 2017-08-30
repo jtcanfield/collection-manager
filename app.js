@@ -49,6 +49,10 @@ app.post("/add", function (req, res) {
 });
 
 
+app.get("/addsave:dynamic", function (req, res) {
+  res.render("add");
+});
+
 app.post('/createnew', function (req, res) {
   Game.create(req.body)
   .then(function (game) {
@@ -56,18 +60,9 @@ app.post('/createnew', function (req, res) {
   })
   .catch(function (error) {
     res.redirect('/add');
-    // res.render('new_recipe', {errorMsg: errorMsg});
   })
 });
 
-
-
-
-// app.get('/', function (req, res) {
-//   Recipe.find().then(function (recipes) {
-//     res.render('index', {recipes: recipes});
-//   })
-// })
 
 
 
