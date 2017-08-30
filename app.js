@@ -49,8 +49,11 @@ app.post("/add", function (req, res) {
 });
 
 
-app.get("/addsave:dynamic", function (req, res) {
-  res.render("add");
+app.post("/addsave:dynamic", function (req, res) {
+  res.render("addsave", {name: req.params.dynamic});
+});
+app.post("/addsaveto:dynamic", function (req, res) {
+  res.redirect('/add');
 });
 
 app.post('/createnew', function (req, res) {

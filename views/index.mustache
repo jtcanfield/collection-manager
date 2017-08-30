@@ -23,7 +23,9 @@
       <li>{{time}}</li>
     {{/saves}}
     </ul>
-    <a href="/addsave{{name}}">Add Save</a>
+    <form action="/addsave{{name}}" method="post">
+      <button type="submit">Add New Save</button>
+    </form>
     <br><br>
     {{/games}}
     <form action="/add" method="post">
