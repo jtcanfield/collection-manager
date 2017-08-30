@@ -30,7 +30,6 @@ function getUser(username){
   });
 }
 
-
 app.get("/", function (req, res) {
   Game.find().then(function (games) {
     res.render('index', {games: games});
@@ -75,11 +74,10 @@ app.post('/:id/editgame/', function (req, res) {
     game.developer = req.body.developer;
     game.isitgood = req.body.isitgood;
     game.save().then(function () {
-    res.render("editgame", {game:game});
+    res.redirect("/")
     })
   })
 })
-
 
 app.post('/createnew', function (req, res) {
   Game.create(req.body)
@@ -90,9 +88,6 @@ app.post('/createnew', function (req, res) {
     res.redirect('/add');
   })
 });
-
-
-
 
 
 app.get("/:dynamic", function (req, res) {
